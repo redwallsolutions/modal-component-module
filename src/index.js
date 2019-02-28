@@ -1,14 +1,30 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { render } from "react-dom";
 
-const App = () => (
-  <div style={{height:'99vh',width:'99vw',display: 'flex', justifyContent:'center', alignItems:'center',flexDirection:'column'}}>
-    <h1>It worked! ;)</h1>
-    <h4>You can create your components inside <span style={{color: 'red'}}>'/src/lib'</span> folder. </h4>
-    <h3>Don't forget to import and export them in the <span style={{color: 'red'}}>'/src/lib/index.js'</span> file before publish it.</h3>
-    <h5>It was made by <span style={{color: 'red'}}>'Redwall Solutions!</span></h5>
-    <p>Thank you.</p>
-  </div>
-);
+import DialogComponent from './lib';
+
+class App extends Component {
+
+  state = {
+    isVisible: false
+  }
+
+  toggleVisibility = () => {
+    this.setState({
+      isVisible: !this.state.isVisible
+    });
+  }
+
+  render() {
+    return (
+      <div style={{height:'99vh',width:'99vw',display: 'flex', justifyContent:'center', alignItems:'center',flexDirection:'column'}}>
+        <button onClick={this.toggleVisibility}>Toggle Modal</button>
+        <DialogComponent
+          visible={this.state.isVisible} onClose={this.toggleVisibility}/>
+      </div>
+    );
+  }
+
+}
 
 render(<App />, document.getElementById("root"));
