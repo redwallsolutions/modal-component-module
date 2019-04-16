@@ -28,7 +28,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(DialogComponent)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _this.renderDialogHeader = function (icon, title, subtitle) {
-      return React.createElement(Style.DialogHeader, null, React.createElement(Style.DialogHeaderIcon, null, icon), React.createElement(Style.DialogHeaderTitleContainer, null, React.createElement(Style.DialogHeaderTitle, null, title), React.createElement(Style.DialogHeaderSubtitle, null, subtitle)));
+      return React.createElement(Style.DialogHeader, null, icon && React.createElement(Style.DialogHeaderIcon, null, icon), React.createElement(Style.DialogHeaderTitleContainer, null, React.createElement(Style.DialogHeaderTitle, null, title), React.createElement(Style.DialogHeaderSubtitle, null, subtitle)));
     };
 
     return _this;
@@ -57,7 +57,6 @@ function (_Component) {
 }(Component);
 
 DialogComponent.defaultProps = {
-  icon: React.createElement("i", null, "ICON"),
   title: 'Redwall Modal Title',
   subtitle: 'An awesome subtitle here.',
   content: React.createElement("div", null, "This is some content.")

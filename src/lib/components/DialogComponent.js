@@ -9,9 +9,12 @@ class DialogComponent extends Component {
 
   renderDialogHeader = (icon, title, subtitle) => (
     <Style.DialogHeader>
-      <Style.DialogHeaderIcon>
-        {icon}
-      </Style.DialogHeaderIcon>
+      {
+        icon &&
+        <Style.DialogHeaderIcon>
+          {icon}
+        </Style.DialogHeaderIcon>
+      }
       <Style.DialogHeaderTitleContainer>
         <Style.DialogHeaderTitle>
           {title}
@@ -43,7 +46,6 @@ class DialogComponent extends Component {
 }
 
 DialogComponent.defaultProps = {
-  icon: <i>ICON</i>,
   title: 'Redwall Modal Title',
   subtitle: 'An awesome subtitle here.',
   content: <div>This is some content.</div>
