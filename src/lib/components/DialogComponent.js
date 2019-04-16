@@ -7,26 +7,32 @@ import * as Style from './Style';
 
 class DialogComponent extends Component {
 
-  renderDialogHeader = () => (
+  renderDialogHeader = (icon, title, subtitle) => (
     <Style.DialogHeader>
-      <Style.DialogHeaderTitle>
-        Modal Title
-      </Style.DialogHeaderTitle>
-      <Style.DialogHeaderSubtitle>
-        An awesome description for Redwall Modal.
-      </Style.DialogHeaderSubtitle>
+      <Style.DialogHeaderIcon>
+        {icon}
+      </Style.DialogHeaderIcon>
+      <Style.DialogHeaderTitleContainer>
+        <Style.DialogHeaderTitle>
+          {title}
+        </Style.DialogHeaderTitle>
+        <Style.DialogHeaderSubtitle>
+          {subtitle}
+        </Style.DialogHeaderSubtitle>
+      </Style.DialogHeaderTitleContainer>
     </Style.DialogHeader>
   )
 
   render() {
+    const { icon, title, subtitle, content, ...rest } = this.props;
     return (
       <React.Fragment>
-        <Dialog {...this.props}
+        <Dialog {...rest}
           className='dialog-component-module'
-          title={this.renderDialogHeader()}
+          title={this.renderDialogHeader(icon, title, subtitle)}
           animation='zoom'
-          maskAnimation='fade'>
-          Qualquer Coisa Aqui
+        maskAnimation='fade'>
+          {content}
         </Dialog>
         <Style.DialogGlobalStyles/>
       </React.Fragment>
@@ -34,6 +40,13 @@ class DialogComponent extends Component {
     );
   }
 
+}
+
+DialogComponent.defaultProps = {
+  icon: <i>ICON</i>,
+  title: 'Redwall Modal Title',
+  subtitle: 'An awesome subtitle here.',
+  content: <div>This is some content.</div>
 }
 
 export default DialogComponent;

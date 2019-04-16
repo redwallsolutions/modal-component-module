@@ -32,10 +32,19 @@ const FlexContainer = styled.div `
 `
 
 export const DialogHeader = styled(FlexContainer)`
-  width: 100%;
-  padding: 10px 4px;
-  display: block;
   padding: 1.3em;
+`
+
+export const DialogHeaderIcon = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100px;
+  padding: 0 15px;
+`
+
+export const DialogHeaderTitleContainer = styled(FlexContainer)`
+  flex-direction: column;
 `
 
 export const DialogHeaderTitle = styled.h1`
