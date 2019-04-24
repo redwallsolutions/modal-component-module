@@ -26,10 +26,10 @@ export const DialogGlobalStyles = createGlobalStyle `
   .dialog-component-module {
     font-family: 'Poppins', cursive;
   }
-  .rc-dialog-header {
-    border-bottom: none;
-    padding:0;
-    margin: 0;
+  .dialog-component-module .rc-dialog-header {
+    border-bottom: none !important;
+    padding:0 !important;
+    margin: 0 !important;
   }
 `
 
