@@ -5,6 +5,7 @@ import _getPrototypeOf from "@babel/runtime/helpers/esm/getPrototypeOf";
 import _inherits from "@babel/runtime/helpers/esm/inherits";
 import React, { Component } from 'react';
 import DialogComponent from './DialogComponent';
+import { DialogGlobalStyles } from './Style';
 
 var Modal =
 /*#__PURE__*/
@@ -20,7 +21,7 @@ function (_Component) {
   _createClass(Modal, [{
     key: "render",
     value: function render() {
-      return React.createElement(DialogComponent, this.props);
+      return React.createElement(React.Fragment, null, React.createElement(DialogComponent, this.props), React.createElement(DialogGlobalStyles, null));
     }
   }]);
 

@@ -63,13 +63,13 @@ function (_Component) {
           theme = _this$props.theme,
           rest = _objectWithoutProperties(_this$props, ["icon", "title", "subtitle", "content", "theme"]);
 
-      return React.createElement(React.Fragment, null, React.createElement(Dialog, Object.assign({}, rest, {
+      return React.createElement(Dialog, Object.assign({}, rest, {
         className: "dialog-component-module",
         title: this.renderDialogHeader(icon, title, subtitle),
         animation: "zoom",
         maskAnimation: "fade",
         bodyStyle: this.bodyStyle
-      }), content), React.createElement(Style.DialogGlobalStyles, null));
+      }), content);
     }
   }]);
 

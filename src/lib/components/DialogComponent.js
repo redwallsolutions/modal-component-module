@@ -43,7 +43,6 @@ class DialogComponent extends Component {
   render() {
     const { icon, title, subtitle, content, theme, ...rest } = this.props;
     return (
-      <React.Fragment>
         <Dialog {...rest}
           className='dialog-component-module'
           title={this.renderDialogHeader(icon, title, subtitle)}
@@ -53,9 +52,6 @@ class DialogComponent extends Component {
         >
           {content}
         </Dialog>
-        <Style.DialogGlobalStyles/>
-      </React.Fragment>
-
     );
   }
 
