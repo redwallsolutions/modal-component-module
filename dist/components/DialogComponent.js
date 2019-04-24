@@ -7,6 +7,7 @@ import _inherits from "@babel/runtime/helpers/esm/inherits";
 import React, { Component } from 'react';
 import 'rc-dialog/dist/rc-dialog.css';
 import Dialog from 'rc-dialog';
+import { withTheme } from 'styled-components';
 import * as Style from './Style';
 
 var DialogComponent =
@@ -27,6 +28,15 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(DialogComponent)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
+    _this.getBodyStyle = function () {
+      var backgroundColor = Style.theme(_this.props).contrast(_this.props);
+      var color = Style.theme(_this.props).color(_this.props);
+      return {
+        backgroundColor: backgroundColor,
+        color: color
+      };
+    };
+
     _this.renderDialogHeader = function (icon, title, subtitle) {
       return React.createElement(Style.DialogHeader, null, icon && React.createElement(Style.DialogHeaderIcon, null, icon), React.createElement(Style.DialogHeaderTitleContainer, null, React.createElement(Style.DialogHeaderTitle, null, title), React.createElement(Style.DialogHeaderSubtitle, null, subtitle)));
     };
@@ -35,6 +45,11 @@ function (_Component) {
   }
 
   _createClass(DialogComponent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.bodyStyle = this.getBodyStyle();
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -42,13 +57,15 @@ function (_Component) {
           title = _this$props.title,
           subtitle = _this$props.subtitle,
           content = _this$props.content,
-          rest = _objectWithoutProperties(_this$props, ["icon", "title", "subtitle", "content"]);
+          theme = _this$props.theme,
+          rest = _objectWithoutProperties(_this$props, ["icon", "title", "subtitle", "content", "theme"]);
 
       return React.createElement(React.Fragment, null, React.createElement(Dialog, Object.assign({}, rest, {
         className: "dialog-component-module",
         title: this.renderDialogHeader(icon, title, subtitle),
         animation: "zoom",
-        maskAnimation: "fade"
+        maskAnimation: "fade",
+        bodyStyle: this.bodyStyle
       }), content), React.createElement(Style.DialogGlobalStyles, null));
     }
   }]);
@@ -59,6 +76,7 @@ function (_Component) {
 DialogComponent.defaultProps = {
   title: 'Redwall Modal Title',
   subtitle: 'An awesome subtitle here.',
-  content: React.createElement("div", null, "This is some content.")
+  content: React.createElement("div", null, "This is some content."),
+  appearance: 'primary'
 };
-export default DialogComponent;
+export default withTheme(DialogComponent);

@@ -1,8 +1,18 @@
 import styled, {
   createGlobalStyle
 } from 'styled-components';
-
 import Poppins from './../assets/fonts/Poppins-Regular.ttf';
+import Theming from 'theming-component-module';
+import Color from 'color';
+
+export const theme = Theming.createThemeWithAppearance()
+
+const defaultProps = {
+  theme: {
+    mode: 'light'
+  },
+  appearance:'primary'
+}
 
 export const DialogGlobalStyles = createGlobalStyle `
   @font-face {
@@ -15,7 +25,6 @@ export const DialogGlobalStyles = createGlobalStyle `
 
   .dialog-component-module {
     font-family: 'Poppins', cursive;
-    color: rgb(69,69,69);
   }
   .rc-dialog-header {
     border-bottom: none;
@@ -31,9 +40,16 @@ const FlexContainer = styled.div `
   margin: 0;
 `
 
-export const DialogHeader = styled(FlexContainer)`
+const DialogHeader = styled(FlexContainer)`
   padding: 1.3em;
+  background-color: ${props => Color(theme(props).contrast(props)).lighten(.2).string()};
+  color: ${props => theme(props).color};
+
 `
+
+DialogHeader.defaultProps = defaultProps
+
+export {DialogHeader}
 
 export const DialogHeaderIcon = styled.span`
   display: flex;

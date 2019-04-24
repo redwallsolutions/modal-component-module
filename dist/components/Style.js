@@ -41,7 +41,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  padding: 1.3em;\n"]);
+  var data = _taggedTemplateLiteral(["\n  padding: 1.3em;\n  background-color: ", ";\n  color: ", ";\n\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -61,7 +61,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  @font-face {\n    font-family: Poppins;\n    src: url(", ") format(\"TrueType\");\n    font-style: light;\n    font-weight: 200;\n    font-display: fallback;\n  }\n\n  .dialog-component-module {\n    font-family: 'Poppins', cursive;\n    color: rgb(69,69,69);\n  }\n  .rc-dialog-header {\n    border-bottom: none;\n    padding:0;\n    margin: 0;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  @font-face {\n    font-family: Poppins;\n    src: url(", ") format(\"TrueType\");\n    font-style: light;\n    font-weight: 200;\n    font-display: fallback;\n  }\n\n  .dialog-component-module {\n    font-family: 'Poppins', cursive;\n  }\n  .rc-dialog-header {\n    border-bottom: none;\n    padding:0;\n    margin: 0;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -72,9 +72,24 @@ function _templateObject() {
 
 import styled, { createGlobalStyle } from 'styled-components';
 import Poppins from './../assets/fonts/Poppins-Regular.ttf';
+import Theming from 'theming-component-module';
+import Color from 'color';
+export var theme = Theming.createThemeWithAppearance();
+var defaultProps = {
+  theme: {
+    mode: 'light'
+  },
+  appearance: 'primary'
+};
 export var DialogGlobalStyles = createGlobalStyle(_templateObject(), Poppins);
 var FlexContainer = styled.div(_templateObject2());
-export var DialogHeader = styled(FlexContainer)(_templateObject3());
+var DialogHeader = styled(FlexContainer)(_templateObject3(), function (props) {
+  return Color(theme(props).contrast(props)).lighten(.2).string();
+}, function (props) {
+  return theme(props).color;
+});
+DialogHeader.defaultProps = defaultProps;
+export { DialogHeader };
 export var DialogHeaderIcon = styled.span(_templateObject4());
 export var DialogHeaderTitleContainer = styled(FlexContainer)(_templateObject5());
 export var DialogHeaderTitle = styled.h1(_templateObject6());

@@ -3,7 +3,7 @@ import { render } from "react-dom";
 
 import Modal from './lib';
 
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const ResetCSS = createGlobalStyle`
   body {
@@ -27,12 +27,14 @@ class App extends Component {
 
   render() {
     return (
-      <div style={{height:'99vh',width:'99vw',display: 'flex', justifyContent:'center', alignItems:'center',flexDirection:'column'}}>
-        <ResetCSS/>
-        <button onClick={this.toggleVisibility}>Toggle Modal</button>
-        <Modal
-          visible={this.state.isVisible} onClose={this.toggleVisibility}/>
-      </div>
+      <ThemeProvider theme={{mode: 'dark', primaryContrastDark: '#2b324c', primaryDark: '#ebebeb'}}>
+        <div style={{height:'99vh',width:'99vw',display: 'flex', justifyContent:'center', alignItems:'center',flexDirection:'column'}}>
+          <ResetCSS/>
+          <button onClick={this.toggleVisibility}>Toggle Modal</button>
+          <Modal
+            visible={this.state.isVisible} onClose={this.toggleVisibility}/>
+        </div>
+      </ThemeProvider>
     );
   }
 

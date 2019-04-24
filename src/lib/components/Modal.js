@@ -5,7 +5,7 @@ class Modal extends Component {
 
   render() {
     return (
-      <DialogComponent {...this.props}/>
+        <DialogComponent {...this.props}/>
     );
   }
 
