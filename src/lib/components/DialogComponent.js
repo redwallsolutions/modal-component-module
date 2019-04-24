@@ -4,7 +4,6 @@ import 'rc-dialog/dist/rc-dialog.css';
 import Dialog from 'rc-dialog';
 
 import { withTheme } from 'styled-components';
-import Color from 'color';
 
 import * as Style from './Style';
 

@@ -8,7 +8,7 @@ class Modal extends Component {
     const { children, ...rest } = this.props;
     return (
       <React.Fragment>
-        <DialogComponent {...this.rest} content={children}/>
+        <DialogComponent {...rest} content={children}/>
         <DialogGlobalStyles/>
       </React.Fragment>
     );
