@@ -5,9 +5,10 @@ import { DialogGlobalStyles } from './Style';
 class Modal extends Component {
 
   render() {
+    const { children, ...rest } = this.props;
     return (
       <React.Fragment>
-        <DialogComponent {...this.props}/>
+        <DialogComponent {...this.rest} content={children}/>
         <DialogGlobalStyles/>
       </React.Fragment>
     );
