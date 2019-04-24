@@ -1,3 +1,4 @@
+import _objectWithoutProperties from "@babel/runtime/helpers/esm/objectWithoutProperties";
 import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
 import _createClass from "@babel/runtime/helpers/esm/createClass";
 import _possibleConstructorReturn from "@babel/runtime/helpers/esm/possibleConstructorReturn";
@@ -21,7 +22,13 @@ function (_Component) {
   _createClass(Modal, [{
     key: "render",
     value: function render() {
-      return React.createElement(React.Fragment, null, React.createElement(DialogComponent, this.props), React.createElement(DialogGlobalStyles, null));
+      var _this$props = this.props,
+          children = _this$props.children,
+          rest = _objectWithoutProperties(_this$props, ["children"]);
+
+      return React.createElement(React.Fragment, null, React.createElement(DialogComponent, Object.assign({}, this.rest, {
+        content: chidren
+      })), React.createElement(DialogGlobalStyles, null));
     }
   }]);
 
