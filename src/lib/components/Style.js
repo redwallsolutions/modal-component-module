@@ -42,9 +42,9 @@ const FlexContainer = styled.div `
 
 const DialogHeader = styled(FlexContainer)`
   padding: 1.3em;
-  background-color: ${props => Color(theme(props).contrast(props)).lighten(.2).string()};
+  background-color: ${props => Color(theme(props).contrast(props)).fade(.05).string()};
   color: ${props => theme(props).color};
-
+  border-radius: 4px 4px 0 0;
 `
 
 DialogHeader.defaultProps = defaultProps
@@ -69,10 +69,14 @@ export const DialogHeaderTitle = styled.h1`
   margin: 0;
 `
 
-export const DialogHeaderSubtitle = styled.h2`
+const DialogHeaderSubtitle = styled.h2`
   margin: 3px 0 0 0;
   font-size: 14px;
-  color: rgb(120,120,120);
   font-weight: normal;
   letter-spacing: .8px;
+  color: ${props => Color(theme(props).color(props)).fade(.3).string()}
 `
+
+DialogHeaderSubtitle.defaultProps = defaultProps
+
+export {DialogHeaderSubtitle}

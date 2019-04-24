@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import 'rc-dialog/dist/rc-dialog.css';
 import Dialog from 'rc-dialog';
 import { withTheme } from 'styled-components';
+import Color from 'color';
 import * as Style from './Style';
 
 var DialogComponent =
@@ -31,9 +32,11 @@ function (_Component) {
     _this.getBodyStyle = function () {
       var backgroundColor = Style.theme(_this.props).contrast(_this.props);
       var color = Style.theme(_this.props).color(_this.props);
+      var borderRadius = '0 0 4px 4px';
       return {
         backgroundColor: backgroundColor,
-        color: color
+        color: color,
+        borderRadius: borderRadius
       };
     };
 

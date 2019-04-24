@@ -4,6 +4,7 @@ import 'rc-dialog/dist/rc-dialog.css';
 import Dialog from 'rc-dialog';
 
 import { withTheme } from 'styled-components';
+import Color from 'color';
 
 import * as Style from './Style';
 
@@ -16,8 +17,8 @@ class DialogComponent extends Component {
   getBodyStyle = () => {
     const backgroundColor = Style.theme(this.props).contrast(this.props)
     const color = Style.theme(this.props).color(this.props)
-
-    return {backgroundColor, color  }
+    const borderRadius = '0 0 4px 4px'
+    return {backgroundColor, color, borderRadius}
   }
 
   renderDialogHeader = (icon, title, subtitle) => (

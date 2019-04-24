@@ -1,7 +1,7 @@
 import _taggedTemplateLiteral from "@babel/runtime/helpers/esm/taggedTemplateLiteral";
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n  margin: 3px 0 0 0;\n  font-size: 14px;\n  color: rgb(120,120,120);\n  font-weight: normal;\n  letter-spacing: .8px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  margin: 3px 0 0 0;\n  font-size: 14px;\n  font-weight: normal;\n  letter-spacing: .8px;\n  color: ", "\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -41,7 +41,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  padding: 1.3em;\n  background-color: ", ";\n  color: ", ";\n\n"]);
+  var data = _taggedTemplateLiteral(["\n  padding: 1.3em;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 4px 4px 0 0;\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -84,7 +84,7 @@ var defaultProps = {
 export var DialogGlobalStyles = createGlobalStyle(_templateObject(), Poppins);
 var FlexContainer = styled.div(_templateObject2());
 var DialogHeader = styled(FlexContainer)(_templateObject3(), function (props) {
-  return Color(theme(props).contrast(props)).lighten(.2).string();
+  return Color(theme(props).contrast(props)).fade(.05).string();
 }, function (props) {
   return theme(props).color;
 });
@@ -93,4 +93,8 @@ export { DialogHeader };
 export var DialogHeaderIcon = styled.span(_templateObject4());
 export var DialogHeaderTitleContainer = styled(FlexContainer)(_templateObject5());
 export var DialogHeaderTitle = styled.h1(_templateObject6());
-export var DialogHeaderSubtitle = styled.h2(_templateObject7());
+var DialogHeaderSubtitle = styled.h2(_templateObject7(), function (props) {
+  return Color(theme(props).color(props)).fade(.3).string();
+});
+DialogHeaderSubtitle.defaultProps = defaultProps;
+export { DialogHeaderSubtitle };
