@@ -57,6 +57,10 @@ const DialogGlobalStyles = createGlobalStyle `
       opacity: 1 !important;
     }
   }
+
+  .rc-dialog-mask {
+    background-color: ${props => Color(theme(props).color(props)).fade(.08).darken(.9).string()}
+  }
 `
 
 DialogGlobalStyles.defaultProps = defaultProps
