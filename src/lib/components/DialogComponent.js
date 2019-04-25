@@ -5,38 +5,27 @@ import Dialog from 'rc-dialog';
 
 import { withTheme } from 'styled-components';
 
-import * as Style from './Style';
+import {DialogHeader, DialogHeaderIcon, DialogHeaderTitle, DialogHeaderSubtitle, DialogHeaderTitleContainer} from './Style';
 
 class DialogComponent extends Component {
 
-  componentDidMount() {
-    this.bodyStyle = this.getBodyStyle()
-  }
-
-  getBodyStyle = () => {
-    const backgroundColor = Style.theme(this.props).contrast(this.props)
-    const color = Style.theme(this.props).color(this.props)
-    const borderRadius = '0 0 4px 4px'
-    return {backgroundColor, color, borderRadius}
-  }
-
   renderDialogHeader = (icon, title, subtitle) => (
-    <Style.DialogHeader>
+    <DialogHeader>
       {
         icon &&
-        <Style.DialogHeaderIcon>
+        <DialogHeaderIcon>
           {icon}
-        </Style.DialogHeaderIcon>
+        </DialogHeaderIcon>
       }
-      <Style.DialogHeaderTitleContainer>
-        <Style.DialogHeaderTitle>
+      <DialogHeaderTitleContainer>
+        <DialogHeaderTitle>
           {title}
-        </Style.DialogHeaderTitle>
-        <Style.DialogHeaderSubtitle>
+        </DialogHeaderTitle>
+        <DialogHeaderSubtitle>
           {subtitle}
-        </Style.DialogHeaderSubtitle>
-      </Style.DialogHeaderTitleContainer>
-    </Style.DialogHeader>
+        </DialogHeaderSubtitle>
+      </DialogHeaderTitleContainer>
+    </DialogHeader>
   )
 
   render() {
@@ -46,9 +35,7 @@ class DialogComponent extends Component {
           className='dialog-component-module'
           title={this.renderDialogHeader(icon, title, subtitle)}
           animation='zoom'
-          maskAnimation='fade'
-          bodyStyle={this.bodyStyle}
-        >
+          maskAnimation='fade'>
           {content}
         </Dialog>
     );

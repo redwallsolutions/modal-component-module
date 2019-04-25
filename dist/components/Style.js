@@ -41,7 +41,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  padding: 1.3em;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 4px 4px 0 0;\n"]);
+  var data = _taggedTemplateLiteral(["\n  padding: 1.3em;\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -61,7 +61,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  @font-face {\n    font-family: Poppins;\n    src: url(", ") format(\"TrueType\");\n    font-style: light;\n    font-weight: 200;\n    font-display: fallback;\n  }\n\n  .dialog-component-module {\n    font-family: 'Poppins', cursive;\n  }\n  .dialog-component-module .rc-dialog-header {\n    border-bottom: none !important;\n    padding:0 !important;\n    margin: 0 !important;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  @font-face {\n    font-family: Poppins;\n    src: url(", ") format(\"TrueType\");\n    font-style: light;\n    font-weight: 200;\n    font-display: fallback;\n  }\n\n  .dialog-component-module {\n    font-family: 'Poppins', cursive;\n  }\n\n  .rc-dialog-content {\n    background: none !important;\n  }\n\n  .rc-dialog-header {\n    border-bottom: none !important;\n    border-radius: 7px 7px 0 0 !important;\n    padding:0 !important;\n    margin: 0 !important;\n    background: linear-gradient(225deg, ", ", ", ") !important;\n    color: ", " !important;\n  }\n\n  .rc-dialog-body {\n    border-radius: 0 0 7px 7px !important;\n    background-color: ", " !important;\n    color: ", ";\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -81,13 +81,21 @@ var defaultProps = {
   },
   appearance: 'primary'
 };
-export var DialogGlobalStyles = createGlobalStyle(_templateObject(), Poppins);
-var FlexContainer = styled.div(_templateObject2());
-var DialogHeader = styled(FlexContainer)(_templateObject3(), function (props) {
-  return Color(theme(props).contrast(props)).fade(.05).string();
+var DialogGlobalStyles = createGlobalStyle(_templateObject(), Poppins, function (props) {
+  return theme(props).contrast;
+}, function (props) {
+  return Color(theme(props).contrast(props)).fade(0.1).string();
+}, function (props) {
+  return theme(props).color;
+}, function (props) {
+  return theme(props).contrast;
 }, function (props) {
   return theme(props).color;
 });
+DialogGlobalStyles.defaultProps = defaultProps;
+export { DialogGlobalStyles };
+var FlexContainer = styled.div(_templateObject2());
+var DialogHeader = styled(FlexContainer)(_templateObject3());
 DialogHeader.defaultProps = defaultProps;
 export { DialogHeader };
 export var DialogHeaderIcon = styled.span(_templateObject4());

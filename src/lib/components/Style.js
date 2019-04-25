@@ -14,7 +14,7 @@ const defaultProps = {
   appearance:'primary'
 }
 
-export const DialogGlobalStyles = createGlobalStyle `
+const DialogGlobalStyles = createGlobalStyle `
   @font-face {
     font-family: Poppins;
     src: url(${Poppins}) format("TrueType");
@@ -26,12 +26,30 @@ export const DialogGlobalStyles = createGlobalStyle `
   .dialog-component-module {
     font-family: 'Poppins', cursive;
   }
-  .dialog-component-module .rc-dialog-header {
+
+  .rc-dialog-content {
+    background: none !important;
+  }
+
+  .rc-dialog-header {
     border-bottom: none !important;
+    border-radius: 7px 7px 0 0 !important;
     padding:0 !important;
     margin: 0 !important;
+    background: linear-gradient(225deg, ${props=> theme(props).contrast}, ${props=> Color(theme(props).contrast(props)).fade(0.1).string()}) !important;
+    color: ${props => theme(props).color} !important;
+  }
+
+  .rc-dialog-body {
+    border-radius: 0 0 7px 7px !important;
+    background-color: ${props => theme(props).contrast} !important;
+    color: ${props => theme(props).color};
   }
 `
+
+DialogGlobalStyles.defaultProps = defaultProps
+
+export {DialogGlobalStyles}
 
 const FlexContainer = styled.div `
   display: flex;
@@ -42,9 +60,6 @@ const FlexContainer = styled.div `
 
 const DialogHeader = styled(FlexContainer)`
   padding: 1.3em;
-  background-color: ${props => Color(theme(props).contrast(props)).fade(.05).string()};
-  color: ${props => theme(props).color};
-  border-radius: 4px 4px 0 0;
 `
 
 DialogHeader.defaultProps = defaultProps

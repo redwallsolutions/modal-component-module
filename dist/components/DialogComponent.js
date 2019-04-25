@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import 'rc-dialog/dist/rc-dialog.css';
 import Dialog from 'rc-dialog';
 import { withTheme } from 'styled-components';
-import * as Style from './Style';
+import { DialogHeader, DialogHeaderIcon, DialogHeaderTitle, DialogHeaderSubtitle, DialogHeaderTitleContainer } from './Style';
 
 var DialogComponent =
 /*#__PURE__*/
@@ -28,30 +28,14 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(DialogComponent)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _this.getBodyStyle = function () {
-      var backgroundColor = Style.theme(_this.props).contrast(_this.props);
-      var color = Style.theme(_this.props).color(_this.props);
-      var borderRadius = '0 0 4px 4px';
-      return {
-        backgroundColor: backgroundColor,
-        color: color,
-        borderRadius: borderRadius
-      };
-    };
-
     _this.renderDialogHeader = function (icon, title, subtitle) {
-      return React.createElement(Style.DialogHeader, null, icon && React.createElement(Style.DialogHeaderIcon, null, icon), React.createElement(Style.DialogHeaderTitleContainer, null, React.createElement(Style.DialogHeaderTitle, null, title), React.createElement(Style.DialogHeaderSubtitle, null, subtitle)));
+      return React.createElement(DialogHeader, null, icon && React.createElement(DialogHeaderIcon, null, icon), React.createElement(DialogHeaderTitleContainer, null, React.createElement(DialogHeaderTitle, null, title), React.createElement(DialogHeaderSubtitle, null, subtitle)));
     };
 
     return _this;
   }
 
   _createClass(DialogComponent, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.bodyStyle = this.getBodyStyle();
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -66,8 +50,7 @@ function (_Component) {
         className: "dialog-component-module",
         title: this.renderDialogHeader(icon, title, subtitle),
         animation: "zoom",
-        maskAnimation: "fade",
-        bodyStyle: this.bodyStyle
+        maskAnimation: "fade"
       }), content);
     }
   }]);
