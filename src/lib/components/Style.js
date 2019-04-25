@@ -45,6 +45,18 @@ const DialogGlobalStyles = createGlobalStyle `
     background-color: ${props => theme(props).contrast} !important;
     color: ${props => theme(props).color};
   }
+
+  .rc-dialog-close {
+    opacity: .6 !important;
+    filter: none !important;
+    color: ${props => props.theme.mode === 'light' ? Color(theme(props).color(props)).grayscale().string() : theme(props).color} !important;
+    text-shadow: none !important;
+    transition: all .2s !important;
+    font-size: 27px !important;
+    :hover {
+      opacity: 1 !important;
+    }
+  }
 `
 
 DialogGlobalStyles.defaultProps = defaultProps
