@@ -36,7 +36,7 @@ const DialogGlobalStyles = createGlobalStyle `
     border-radius: 7px 7px 0 0 !important;
     padding:0 !important;
     margin: 0 !important;
-    background: linear-gradient(225deg, ${props=> theme(props).contrast}, ${props=> Color(theme(props).contrast(props)).fade(0.1).string()}) !important;
+    background: linear-gradient(225deg, ${props=> theme(props).contrast}, ${props=> Color(theme(props).contrast(props)).lighten(0.2).string()}) !important;
     color: ${props => theme(props).color} !important;
   }
 

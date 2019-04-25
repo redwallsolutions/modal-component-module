@@ -84,7 +84,7 @@ var defaultProps = {
 var DialogGlobalStyles = createGlobalStyle(_templateObject(), Poppins, function (props) {
   return theme(props).contrast;
 }, function (props) {
-  return Color(theme(props).contrast(props)).fade(0.1).string();
+  return Color(theme(props).contrast(props)).lighten(0.2).string();
 }, function (props) {
   return theme(props).color;
 }, function (props) {
