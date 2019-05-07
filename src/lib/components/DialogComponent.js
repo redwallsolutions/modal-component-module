@@ -9,7 +9,7 @@ import {DialogHeader, DialogHeaderIcon, DialogHeaderTitle, DialogHeaderSubtitle,
 
 class DialogComponent extends Component {
 
-  renderDialogHeader = (icon, title, subtitle) => (
+  renderDialogHeader = (appearance, icon, title, subtitle) => (
     <DialogHeader>
       {
         icon &&
@@ -21,7 +21,7 @@ class DialogComponent extends Component {
         <DialogHeaderTitle>
           {title}
         </DialogHeaderTitle>
-        <DialogHeaderSubtitle>
+        <DialogHeaderSubtitle appearance={appearance}>
           {subtitle}
         </DialogHeaderSubtitle>
       </DialogHeaderTitleContainer>
@@ -29,11 +29,11 @@ class DialogComponent extends Component {
   )
 
   render() {
-    const { icon, title, subtitle, content, theme, ...rest } = this.props;
+    const { icon, title, subtitle, content, theme, appearance,  ...rest } = this.props;
     return (
         <Dialog {...rest}
           className='modal-component-module'
-          title={this.renderDialogHeader(icon, title, subtitle)}
+          title={this.renderDialogHeader(appearance, icon, title, subtitle)}
           animation='zoom'
           maskAnimation='fade'>
           {content}
@@ -44,10 +44,10 @@ class DialogComponent extends Component {
 }
 
 DialogComponent.defaultProps = {
-  title: 'Redwall Modal Title',
-  subtitle: 'An awesome subtitle here.',
-  content: <div>This is some content.</div>,
-  appearance: 'primary'
+  title: '',
+  subtitle: '',
+  content: <div></div>,
+  appearance: 'default'
 }
 
 export default withTheme(DialogComponent);

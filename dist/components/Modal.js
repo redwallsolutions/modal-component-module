@@ -24,9 +24,13 @@ function (_Component) {
     value: function render() {
       var _this$props = this.props,
           children = _this$props.children,
-          rest = _objectWithoutProperties(_this$props, ["children"]);
+          appearance = _this$props.appearance,
+          rest = _objectWithoutProperties(_this$props, ["children", "appearance"]);
 
-      return React.createElement(React.Fragment, null, React.createElement(DialogGlobalStyles, null), React.createElement(DialogComponent, Object.assign({}, rest, {
+      return React.createElement(React.Fragment, null, React.createElement(DialogGlobalStyles, {
+        appearance: appearance
+      }), React.createElement(DialogComponent, Object.assign({}, rest, {
+        appearance: appearance,
         content: children
       })));
     }

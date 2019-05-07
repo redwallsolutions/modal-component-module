@@ -32,7 +32,13 @@ class App extends Component {
           <ResetCSS/>
           <button onClick={this.toggleVisibility}>Toggle Modal</button>
           <Modal
-            visible={this.state.isVisible} onClose={this.toggleVisibility}/>
+            visible={this.state.isVisible}
+            onClose={this.toggleVisibility}
+            title='Modal Component Module'
+            subtitle='A component made for and by Redwall Solutions.'
+          >
+            oi
+          </Modal>
         </div>
       </ThemeProvider>
     );

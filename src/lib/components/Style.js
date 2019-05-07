@@ -35,7 +35,7 @@ const DialogGlobalStyles = createGlobalStyle `
   .rc-dialog-body {
     border-radius: 0 0 7px 7px !important;
     background-color: ${props => theme(props).contrast} !important;
-    color: ${props => theme(props).color};
+    color: ${props => Color(theme(props).color(props)).grayscale().string()};
   }
 
   .rc-dialog-close {

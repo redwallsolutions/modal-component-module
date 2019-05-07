@@ -5,11 +5,11 @@ import { DialogGlobalStyles } from './Style';
 class Modal extends Component {
 
   render() {
-    const { children, ...rest } = this.props;
+    const { children, appearance, ...rest } = this.props;
     return (
       <>
-        <DialogGlobalStyles/>
-        <DialogComponent {...rest} content={children}/>
+        <DialogGlobalStyles appearance={appearance}/>
+        <DialogComponent {...rest} appearance={appearance} content={children}/>
       </>
     );
   }

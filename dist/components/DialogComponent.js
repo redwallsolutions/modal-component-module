@@ -28,8 +28,10 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(DialogComponent)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _this.renderDialogHeader = function (icon, title, subtitle) {
-      return React.createElement(DialogHeader, null, icon && React.createElement(DialogHeaderIcon, null, icon), React.createElement(DialogHeaderTitleContainer, null, React.createElement(DialogHeaderTitle, null, title), React.createElement(DialogHeaderSubtitle, null, subtitle)));
+    _this.renderDialogHeader = function (appearance, icon, title, subtitle) {
+      return React.createElement(DialogHeader, null, icon && React.createElement(DialogHeaderIcon, null, icon), React.createElement(DialogHeaderTitleContainer, null, React.createElement(DialogHeaderTitle, null, title), React.createElement(DialogHeaderSubtitle, {
+        appearance: appearance
+      }, subtitle)));
     };
 
     return _this;
@@ -44,11 +46,12 @@ function (_Component) {
           subtitle = _this$props.subtitle,
           content = _this$props.content,
           theme = _this$props.theme,
-          rest = _objectWithoutProperties(_this$props, ["icon", "title", "subtitle", "content", "theme"]);
+          appearance = _this$props.appearance,
+          rest = _objectWithoutProperties(_this$props, ["icon", "title", "subtitle", "content", "theme", "appearance"]);
 
       return React.createElement(Dialog, Object.assign({}, rest, {
         className: "modal-component-module",
-        title: this.renderDialogHeader(icon, title, subtitle),
+        title: this.renderDialogHeader(appearance, icon, title, subtitle),
         animation: "zoom",
         maskAnimation: "fade"
       }), content);
@@ -59,9 +62,9 @@ function (_Component) {
 }(Component);
 
 DialogComponent.defaultProps = {
-  title: 'Redwall Modal Title',
-  subtitle: 'An awesome subtitle here.',
-  content: React.createElement("div", null, "This is some content."),
-  appearance: 'primary'
+  title: '',
+  subtitle: '',
+  content: React.createElement("div", null),
+  appearance: 'default'
 };
 export default withTheme(DialogComponent);

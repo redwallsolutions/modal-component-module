@@ -89,7 +89,7 @@ var DialogGlobalStyles = createGlobalStyle(_templateObject(), function (props) {
 }, function (props) {
   return theme(props).contrast;
 }, function (props) {
-  return theme(props).color;
+  return Color(theme(props).color(props)).grayscale().string();
 }, function (props) {
   return Color(theme(props).color(props)).grayscale().string();
 }, function (props) {
