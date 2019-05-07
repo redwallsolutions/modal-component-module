@@ -47,7 +47,7 @@ function (_Component) {
           rest = _objectWithoutProperties(_this$props, ["icon", "title", "subtitle", "content", "theme"]);
 
       return React.createElement(Dialog, Object.assign({}, rest, {
-        className: "dialog-component-module",
+        className: "modal-component-module",
         title: this.renderDialogHeader(icon, title, subtitle),
         animation: "zoom",
         maskAnimation: "fade"

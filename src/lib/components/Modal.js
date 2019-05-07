@@ -7,10 +7,10 @@ class Modal extends Component {
   render() {
     const { children, ...rest } = this.props;
     return (
-      <React.Fragment>
-        <DialogComponent {...rest} content={children}/>
+      <>
         <DialogGlobalStyles/>
-      </React.Fragment>
+        <DialogComponent {...rest} content={children}/>
+      </>
     );
   }
 

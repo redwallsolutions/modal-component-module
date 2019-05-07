@@ -1,7 +1,6 @@
 import styled, {
   createGlobalStyle
 } from 'styled-components';
-import Poppins from './../assets/fonts/Poppins-Regular.ttf';
 import Theming from 'theming-component-module';
 import Color from 'color';
 
@@ -15,16 +14,9 @@ const defaultProps = {
 }
 
 const DialogGlobalStyles = createGlobalStyle `
-  @font-face {
-    font-family: Poppins;
-    src: url(${Poppins}) format("TrueType");
-    font-style: light;
-    font-weight: 200;
-    font-display: fallback;
-  }
 
-  .dialog-component-module {
-    font-family: 'Poppins', cursive;
+  .modal-component-module {
+    font-family: Arial, Helvetica, Tahoma, Geneva, sans-serif;
   }
 
   .rc-dialog-content {

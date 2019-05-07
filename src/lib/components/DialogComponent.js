@@ -32,7 +32,7 @@ class DialogComponent extends Component {
     const { icon, title, subtitle, content, theme, ...rest } = this.props;
     return (
         <Dialog {...rest}
-          className='dialog-component-module'
+          className='modal-component-module'
           title={this.renderDialogHeader(icon, title, subtitle)}
           animation='zoom'
           maskAnimation='fade'>

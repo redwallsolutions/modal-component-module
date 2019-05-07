@@ -26,9 +26,9 @@ function (_Component) {
           children = _this$props.children,
           rest = _objectWithoutProperties(_this$props, ["children"]);
 
-      return React.createElement(React.Fragment, null, React.createElement(DialogComponent, Object.assign({}, rest, {
+      return React.createElement(React.Fragment, null, React.createElement(DialogGlobalStyles, null), React.createElement(DialogComponent, Object.assign({}, rest, {
         content: children
-      })), React.createElement(DialogGlobalStyles, null));
+      })));
     }
   }]);
 
