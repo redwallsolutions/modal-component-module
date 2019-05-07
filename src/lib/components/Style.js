@@ -10,7 +10,7 @@ const defaultProps = {
   theme: {
     mode: 'light'
   },
-  appearance:'primary'
+  appearance:'default'
 }
 
 const DialogGlobalStyles = createGlobalStyle `
@@ -29,7 +29,7 @@ const DialogGlobalStyles = createGlobalStyle `
     padding:0 !important;
     margin: 0 !important;
     background: linear-gradient(225deg, ${props=> theme(props).contrast}, ${props=> Color(theme(props).contrast(props)).lighten(0.2).string()}) !important;
-    color: ${props => theme(props).color} !important;
+    color: ${props => Color(theme(props).color(props)).grayscale().string()} !important;
   }
 
   .rc-dialog-body {
@@ -41,7 +41,7 @@ const DialogGlobalStyles = createGlobalStyle `
   .rc-dialog-close {
     opacity: .6 !important;
     filter: none !important;
-    color: ${props => props.theme.mode === 'light' ? Color(theme(props).color(props)).grayscale().string() : theme(props).color} !important;
+    color: ${props =>Color(theme(props).color(props)).grayscale().string()} !important;
     text-shadow: none !important;
     transition: all .2s !important;
     font-size: 27px !important;
@@ -51,7 +51,7 @@ const DialogGlobalStyles = createGlobalStyle `
   }
 
   .rc-dialog-mask {
-    background-color: ${props => Color(theme(props).color(props)).fade(.08).darken(.9).string()}
+    background-color: ${props => Color(theme(props).color(props)).fade(.03).darken(.9).string()}
   }
 `
 

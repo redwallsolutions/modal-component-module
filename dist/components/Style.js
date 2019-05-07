@@ -78,22 +78,22 @@ var defaultProps = {
   theme: {
     mode: 'light'
   },
-  appearance: 'primary'
+  appearance: 'default'
 };
 var DialogGlobalStyles = createGlobalStyle(_templateObject(), function (props) {
   return theme(props).contrast;
 }, function (props) {
   return Color(theme(props).contrast(props)).lighten(0.2).string();
 }, function (props) {
-  return theme(props).color;
+  return Color(theme(props).color(props)).grayscale().string();
 }, function (props) {
   return theme(props).contrast;
 }, function (props) {
   return theme(props).color;
 }, function (props) {
-  return props.theme.mode === 'light' ? Color(theme(props).color(props)).grayscale().string() : theme(props).color;
+  return Color(theme(props).color(props)).grayscale().string();
 }, function (props) {
-  return Color(theme(props).color(props)).fade(.08).darken(.9).string();
+  return Color(theme(props).color(props)).fade(.03).darken(.9).string();
 });
 DialogGlobalStyles.defaultProps = defaultProps;
 export { DialogGlobalStyles };

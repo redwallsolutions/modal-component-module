@@ -27,7 +27,7 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={{mode: 'dark', primaryContrastDark: '#2b324c', primaryDark: '#ebebeb'}}>
+      <ThemeProvider theme={{mode: 'light'}}>
         <div style={{height:'99vh',width:'99vw',display: 'flex', justifyContent:'center', alignItems:'center',flexDirection:'column'}}>
           <ResetCSS/>
           <button onClick={this.toggleVisibility}>Toggle Modal</button>
