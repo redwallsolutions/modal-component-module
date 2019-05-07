@@ -1,19 +1,67 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import DialogComponent from './DialogComponent';
 import { DialogGlobalStyles } from './Style';
 
 class Modal extends Component {
 
+  state = {
+    visible: true
+  }
+
+  setVisible = (visible) => {
+    this.setState({
+      visible
+    });
+  }
+
+  close = () => {
+    this.setVisible(false)
+    if(this.props.onClose){
+      this.props.onClose(new Promise((resolve) => {
+        setTimeout(() => {
+          resolve()
+        }, 450)
+      }))
+    }
+  }
+
+  open = () => {
+    this.setVisible(true)
+  }
+
+  closeClick = () => {
+    if(this.props.closeClick){
+      this.props.closeClick()
+    }
+
+    this.close()
+  }
+  extractModalController = () => ({
+    open: this.open,
+    close: this.close
+  })
+
+  componentDidMount() {
+    if(this.props.getModalController){
+      this.props.getModalController(this.extractModalController())
+    }
+  }
+
   render() {
-    const { children, appearance, ...rest } = this.props;
+    const { children, appearance, closeClick, ...rest } = this.props;
     return (
       <>
         <DialogGlobalStyles appearance={appearance}/>
-        <DialogComponent {...rest} appearance={appearance} content={children}/>
+        <DialogComponent {...rest} visible={this.state.visible} onClose={closeClick} tiappearance={appearance} content={children}/>
       </>
     );
   }
-
 }
 
-export default Modal;
+Modal.propTypes = {
+  getModalController: PropTypes.func.isRequired,
+  closeClick: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired
+}
+export default Modal
