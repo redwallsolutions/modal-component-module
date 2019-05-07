@@ -61,7 +61,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\n  .modal-component-module {\n    font-family: Arial, Helvetica, Tahoma, Geneva, sans-serif;\n  }\n\n  .rc-dialog-content {\n    background: none !important;\n  }\n\n  .rc-dialog-header {\n    border-bottom: none !important;\n    border-radius: 7px 7px 0 0 !important;\n    padding:0 !important;\n    margin: 0 !important;\n    background: linear-gradient(225deg, ", ", ", ") !important;\n    color: ", " !important;\n  }\n\n  .rc-dialog-body {\n    border-radius: 0 0 7px 7px !important;\n    background-color: ", " !important;\n    color: ", ";\n  }\n\n  .rc-dialog-close {\n    opacity: .6 !important;\n    filter: none !important;\n    color: ", " !important;\n    text-shadow: none !important;\n    transition: all .2s !important;\n    font-size: 27px !important;\n    :hover {\n      opacity: 1 !important;\n    }\n  }\n\n  .rc-dialog-mask {\n    background-color: ", "\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n\n  .modal-component-module {\n    font-family: Arial, Helvetica, Tahoma, Geneva, sans-serif;\n  }\n\n  .rc-dialog-content {\n    background: none !important;\n  }\n\n  .rc-dialog-header {\n    border-bottom: none !important;\n    border-radius: 7px 7px 0 0 !important;\n    padding:0 !important;\n    margin: 0 !important;\n    background: linear-gradient(225deg, ", ", ", ") !important;\n    color: ", " !important;\n  }\n\n  .rc-dialog-body {\n    border-radius: 0 0 7px 7px !important;\n    background-color: ", " !important;\n    color: ", ";\n  }\n\n  .rc-dialog-close {\n    opacity: .6 !important;\n    filter: none !important;\n    color: ", " !important;\n    text-shadow: none !important;\n    transition: all .2s !important;\n    font-size: 27px !important;\n    :hover {\n      opacity: 1 !important;\n    }\n  }\n\n  .rc-dialog-mask {\n    background-color: ", " !important;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -93,7 +93,7 @@ var DialogGlobalStyles = createGlobalStyle(_templateObject(), function (props) {
 }, function (props) {
   return Color(theme(props).color(props)).grayscale().string();
 }, function (props) {
-  return Color(theme(props).color(props)).fade(.01).darken(.9).string();
+  return Color(theme(props).color(props)).fade(.03).darken(.9).string();
 });
 DialogGlobalStyles.defaultProps = defaultProps;
 export { DialogGlobalStyles };
