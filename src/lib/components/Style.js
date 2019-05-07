@@ -51,7 +51,7 @@ const DialogGlobalStyles = createGlobalStyle `
   }
 
   .rc-dialog-mask {
-    background-color: ${props => Color(theme(props).color(props)).fade(.03).darken(.9).string()}
+    background-color: ${props => Color(theme(props).color(props)).fade(.01).darken(.9).string()}
   }
 `
 

@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   onClose = (closed) => {
-    closed.then(()=>setTimeout(()=>{this.open()}))
+    // closed.then(()=>setTimeout(()=>{this.open()}))
   }
 
   getModalController = (modalController) => {
@@ -34,14 +34,14 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={{mode: 'light'}}>
+      <ThemeProvider theme={{mode: 'dark', primaryContrastDark: '#2b324c', primaryDark: '#ebebeb', secondaryDark: 'rgb(106, 140, 147)', secondaryDarkContrast: 'rgb(238, 238, 238)'}}>
         <div style={{height:'99vh',width:'99vw',display: 'flex', justifyContent:'center', alignItems:'center',flexDirection:'column'}}>
           <ResetCSS/>
           <button onClick={this.open}>Toggle Modal</button>
           <Modal
+            appearance='primary'
             getModalController={this.getModalController}
             onClose={this.onClose}
-            closeClick={this.close}
             title='Modal Component Module'
             subtitle='A component made for and by Redwall Solutions.'
           >

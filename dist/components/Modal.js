@@ -89,8 +89,8 @@ function (_Component) {
         appearance: appearance
       }), React.createElement(DialogComponent, Object.assign({}, rest, {
         visible: this.state.visible,
-        onClose: closeClick,
-        tiappearance: appearance,
+        onClose: this.closeClick,
+        appearance: appearance,
         content: children
       })));
     }

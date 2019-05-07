@@ -53,7 +53,7 @@ class Modal extends Component {
     return (
       <>
         <DialogGlobalStyles appearance={appearance}/>
-        <DialogComponent {...rest} visible={this.state.visible} onClose={closeClick} tiappearance={appearance} content={children}/>
+        <DialogComponent {...rest} visible={this.state.visible} onClose={this.closeClick} appearance={appearance} content={children}/>
       </>
     );
   }

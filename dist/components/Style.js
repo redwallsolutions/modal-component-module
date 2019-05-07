@@ -93,7 +93,7 @@ var DialogGlobalStyles = createGlobalStyle(_templateObject(), function (props) {
 }, function (props) {
   return Color(theme(props).color(props)).grayscale().string();
 }, function (props) {
-  return Color(theme(props).color(props)).fade(.03).darken(.9).string();
+  return Color(theme(props).color(props)).fade(.01).darken(.9).string();
 });
 DialogGlobalStyles.defaultProps = defaultProps;
 export { DialogGlobalStyles };
