@@ -61,7 +61,7 @@ class Modal extends Component {
 
 Modal.propTypes = {
   getModalController: PropTypes.func.isRequired,
-  closeClick: PropTypes.func.isRequired,
+  closeClick: PropTypes.func,
   onClose: PropTypes.func.isRequired
 }
 export default Modal
