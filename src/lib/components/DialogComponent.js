@@ -33,9 +33,7 @@ class DialogComponent extends Component {
     return (
         <Dialog {...rest}
           className='modal-component-module'
-          title={this.renderDialogHeader(appearance, icon, title, subtitle)}
-          animation='zoom'
-          maskAnimation='fade'>
+          title={this.renderDialogHeader(appearance, icon, title, subtitle)} maskAnimation="fade" animation="zoom">
           {content}
         </Dialog>
     );
