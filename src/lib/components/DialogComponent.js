@@ -1,51 +1,50 @@
-import React, { Component } from 'react';
+import React from 'react'
+import 'rc-dialog/dist/rc-dialog.css'
+import Dialog from 'rc-dialog'
 
-import 'rc-dialog/dist/rc-dialog.css';
-import Dialog from 'rc-dialog';
+import {
+	DialogHeader,
+	DialogHeaderIcon,
+	DialogHeaderTitle,
+	DialogHeaderSubtitle,
+	DialogHeaderTitleContainer
+} from './Style'
 
-import { withTheme } from 'styled-components';
+function DialogHeaderComponent({ appearance, icon, title, subtitle }) {
+	return (
+		<DialogHeader>
+			{icon && <DialogHeaderIcon>{icon}</DialogHeaderIcon>}
+			<DialogHeaderTitleContainer>
+				<DialogHeaderTitle>{title}</DialogHeaderTitle>
+				<DialogHeaderSubtitle appearance={appearance}>
+					{subtitle}
+				</DialogHeaderSubtitle>
+			</DialogHeaderTitleContainer>
+		</DialogHeader>
+	)
+}
 
-import {DialogHeader, DialogHeaderIcon, DialogHeaderTitle, DialogHeaderSubtitle, DialogHeaderTitleContainer} from './Style';
-
-class DialogComponent extends Component {
-
-  renderDialogHeader = (appearance, icon, title, subtitle) => (
-    <DialogHeader>
-      {
-        icon &&
-        <DialogHeaderIcon>
-          {icon}
-        </DialogHeaderIcon>
-      }
-      <DialogHeaderTitleContainer>
-        <DialogHeaderTitle>
-          {title}
-        </DialogHeaderTitle>
-        <DialogHeaderSubtitle appearance={appearance}>
-          {subtitle}
-        </DialogHeaderSubtitle>
-      </DialogHeaderTitleContainer>
-    </DialogHeader>
-  )
-
-  render() {
-    const { icon, title, subtitle, content, theme, appearance,  ...rest } = this.props;
-    return (
-        <Dialog {...rest}
-          className='modal-component-module'
-          title={this.renderDialogHeader(appearance, icon, title, subtitle)} maskAnimation="fade" animation="zoom">
-          {content}
-        </Dialog>
-    );
-  }
-
+function DialogComponent({ appearance, icon, title, subtitle, content,...rest }) {
+	return (
+		<Dialog
+			className="modal-component-module"
+			title={
+				<DialogHeaderComponent appearance={appearance} icon={icon} title={title} subtitle={subtitle} />
+			}
+			maskAnimation="fade"
+			animation="zoom"
+			{...rest}
+		>
+			{content}
+		</Dialog>
+	)
 }
 
 DialogComponent.defaultProps = {
-  title: '',
-  subtitle: '',
-  content: <div></div>,
-  appearance: 'default'
+	title: '',
+	subtitle: '',
+	content: <div></div>,
+	appearance: 'default'
 }
 
-export default withTheme(DialogComponent);
+export default DialogComponent
