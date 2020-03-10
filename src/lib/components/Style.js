@@ -1,8 +1,8 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import Theming from '@redwallsolutions/theming-component-module'
+import { createThemeWithAppearance } from "@redwallsolutions/theming-component-module";
 import Color from 'color'
 
-export const theme = Theming.createThemeWithAppearance()
+export const theme = createThemeWithAppearance()
 
 const defaultProps = {
 	theme: {

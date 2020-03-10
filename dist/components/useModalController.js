@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import ModalContext from './ModalContext';
 
-var useModalController = function useModalController() {
-  var controller = useContext(ModalContext);
+const useModalController = () => {
+  const controller = useContext(ModalContext);
   return controller;
 };
 

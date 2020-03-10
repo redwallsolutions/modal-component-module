@@ -6,22 +6,22 @@ import { DialogGlobalStyles } from './Style';
 import ModalContext from './ModalContext';
 
 function Modal(_ref) {
-  var onClose = _ref.onClose,
+  let onClose = _ref.onClose,
       appearance = _ref.appearance,
       children = _ref.children,
       rest = _objectWithoutProperties(_ref, ["onClose", "appearance", "children"]);
 
-  var _useState = useState(true),
-      _useState2 = _slicedToArray(_useState, 2),
-      visible = _useState2[0],
-      setVisible = _useState2[1];
+  const _useState = useState(true),
+        _useState2 = _slicedToArray(_useState, 2),
+        visible = _useState2[0],
+        setVisible = _useState2[1];
 
   function close() {
     setVisible(false);
 
     if (onClose) {
-      onClose(new Promise(function (resolve) {
-        setTimeout(function () {
+      onClose(new Promise(resolve => {
+        setTimeout(() => {
           resolve();
         }, 450);
       }));
@@ -38,8 +38,8 @@ function Modal(_ref) {
 
   return React.createElement(ModalContext.Provider, {
     value: {
-      close: close,
-      open: open
+      close,
+      open
     }
   }, React.createElement(DialogGlobalStyles, {
     appearance: appearance

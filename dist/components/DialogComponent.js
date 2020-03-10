@@ -4,23 +4,24 @@ import 'rc-dialog/dist/rc-dialog.css';
 import Dialog from 'rc-dialog';
 import { DialogHeader, DialogHeaderIcon, DialogHeaderTitle, DialogHeaderSubtitle, DialogHeaderTitleContainer } from './Style';
 
-function DialogHeaderComponent(_ref) {
-  var appearance = _ref.appearance,
-      icon = _ref.icon,
-      title = _ref.title,
-      subtitle = _ref.subtitle;
+function DialogHeaderComponent({
+  appearance,
+  icon,
+  title,
+  subtitle
+}) {
   return React.createElement(DialogHeader, null, icon && React.createElement(DialogHeaderIcon, null, icon), React.createElement(DialogHeaderTitleContainer, null, React.createElement(DialogHeaderTitle, null, title), React.createElement(DialogHeaderSubtitle, {
     appearance: appearance
   }, subtitle)));
 }
 
-function DialogComponent(_ref2) {
-  var appearance = _ref2.appearance,
-      icon = _ref2.icon,
-      title = _ref2.title,
-      subtitle = _ref2.subtitle,
-      content = _ref2.content,
-      rest = _objectWithoutProperties(_ref2, ["appearance", "icon", "title", "subtitle", "content"]);
+function DialogComponent(_ref) {
+  let appearance = _ref.appearance,
+      icon = _ref.icon,
+      title = _ref.title,
+      subtitle = _ref.subtitle,
+      content = _ref.content,
+      rest = _objectWithoutProperties(_ref, ["appearance", "icon", "title", "subtitle", "content"]);
 
   return React.createElement(Dialog, Object.assign({
     className: "modal-component-module",

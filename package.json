@@ -7,9 +7,6 @@
     "dist"
   ],
   "repository": "https://github.com/redwallsolutions/modal-component-module",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build-examples": "react-scripts build",
